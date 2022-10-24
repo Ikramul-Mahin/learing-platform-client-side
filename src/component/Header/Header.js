@@ -5,6 +5,7 @@ import Navbar from 'react-bootstrap/Navbar';
 import Button from 'react-bootstrap/Button';
 import { faGraduationCap } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { Link } from 'react-router-dom';
 const Header = () => {
     return (
         <div>
@@ -15,16 +16,18 @@ const Header = () => {
                     <Navbar.Collapse id="responsive-navbar-nav">
                         <Nav className="me-auto  ">
 
-                            <Button className='' variant="outline-light"> <small>Dark Mode</small> </Button>
+                            <Button className='' variant="outline-light"> <small>Light-Mode</small> </Button>
 
 
                         </Nav>
-                        <Nav>
-                            <Nav.Link href="#features">Courses</Nav.Link>
-                            <Nav.Link href="#pricing">FAQ</Nav.Link>
-                            <Nav.Link href="#pricing">Blog</Nav.Link>
-                            <Nav.Link href="#pricing">Login</Nav.Link>
-                            <Nav.Link href="#pricing">Register</Nav.Link>
+                        <Nav className='d-flex justify-content-around'>
+
+                            <Link to='/courses' className='text-decoration-none text-white px-2 py-2'>Course</Link>
+                            <Link to='/faq' className='text-decoration-none text-white px-2 py-2'>FAQ</Link>
+                            <Link to='/blog' className='text-decoration-none text-white px-2 py-2'>Blog</Link>
+                            <Link to='/login' className='text-decoration-none text-white px-2 py-2'>Login</Link>
+                            <Link to='/register' className='text-decoration-none text-white px-2 py-2'>Register</Link>
+
 
 
 
