@@ -3,6 +3,7 @@ import Faq from "../component/Faq/Faq";
 import Blog from "../component/Header/Blog/Blog";
 import Home from "../component/Header/Home/Home";
 import Login from "../component/Header/Login/Login";
+import RightNav from "../component/RightNav/RightNav";
 
 import Main from "../layout/Main";
 import Register from "../Register/Register";
@@ -32,7 +33,15 @@ export const router = createBrowserRouter([
             {
                 path: '/faq',
                 element: <PrivateRoute><Faq></Faq></PrivateRoute>
+            },
+            {
+                path: 'rightNav',
+                loader: () => {
+
+                },
+                element: <RightNav></RightNav>
             }
+
         ]
     }
 ])

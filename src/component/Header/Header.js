@@ -7,8 +7,7 @@ import { faGraduationCap } from '@fortawesome/free-solid-svg-icons'
 import { Link } from 'react-router-dom';
 import { AuthContext } from '../../context/AuthProvider';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faCoffee } from '@fortawesome/free-solid-svg-icons'
-import { ArrowRight } from 'react-bootstrap-icons';
+
 import { Image } from 'react-bootstrap';
 
 const Header = () => {
@@ -30,6 +29,7 @@ const Header = () => {
                         <Nav className="me-auto  ">
 
                             <Button className='' variant="outline-light"> <small>Light-Mode</small> </Button>
+
 
 
                         </Nav>
