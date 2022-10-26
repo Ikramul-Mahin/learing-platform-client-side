@@ -10,16 +10,7 @@ const Main = () => {
     return (
         <div>
             <Header></Header>
-            <Container>
-                <Row>
-                    <Col lg='9'>
-                        <Outlet></Outlet>
-                    </Col>
-                    <Col lg='3'>
-                        <RightNav></RightNav>
-                    </Col>
-                </Row>
-            </Container>
+            <Outlet></Outlet>
             <Footer></Footer>
 
         </div>

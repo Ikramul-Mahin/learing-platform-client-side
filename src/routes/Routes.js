@@ -1,4 +1,5 @@
 import { createBrowserRouter } from "react-router-dom";
+import Courses from "../component/Courses/Courses";
 import Faq from "../component/Faq/Faq";
 import Blog from "../component/Header/Blog/Blog";
 import Home from "../component/Header/Home/Home";
@@ -16,7 +17,7 @@ export const router = createBrowserRouter([
         children: [
             {
                 path: '/',
-                element: <Home></Home>
+                element: <Courses></Courses>
             },
             {
                 path: '/login',
@@ -36,10 +37,14 @@ export const router = createBrowserRouter([
             },
             {
                 path: 'rightNav',
-                loader: () => {
-
-                },
                 element: <RightNav></RightNav>
+            },
+            {
+                path: '/courses',
+                loader: async () => {
+                    return fetch('http://localhost:5000/details')
+                },
+                element: <Courses></Courses>
             }
 
         ]
