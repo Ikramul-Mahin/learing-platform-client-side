@@ -45,6 +45,10 @@ export const router = createBrowserRouter([
                     return fetch('http://localhost:5000/details')
                 },
                 element: <Courses></Courses>
+            },
+            {
+                path: '*',
+                element: <div className="mt-5 pt-5 text-center pb-5"> <h2 className="pb-5 mb-5">404!!! <br /> Page Not Found </h2> </div>
             }
 
         ]

@@ -1,5 +1,4 @@
 import React from 'react';
-import React from "react";
 import {
     MDBCol,
     MDBContainer,
@@ -14,7 +13,7 @@ const Faq = () => {
                 <section>
                     <MDBTypography
                         tag="h3"
-                        className="text-center mb-4 pb-2 text-primary fw-bold"
+                        className="text-center mb-4 pb-2 text-dark fw-bold"
                     >
                         FAQ
                     </MDBTypography>
