@@ -1,28 +1,29 @@
 import React from 'react';
 import { Col, Container, Row } from 'react-bootstrap';
-import { useLoaderData } from 'react-router-dom';
+import { Outlet, useLoaderData } from 'react-router-dom';
 import RightNav from '../RightNav/RightNav';
 import CourseCard from './CourseCard';
 
 const Courses = () => {
-    const courses = useLoaderData()
+    const allcourses = useLoaderData()
 
     return (
         <div className='mt-5'>
             <Container>
                 <Row>
-                    {/* <Col lg='9'>
+                    <Col lg='9'>
                         <Row gap='3'>
 
 
                             {
-                                courses.map(course => <CourseCard course={course}></CourseCard>)
+                                allcourses.map(course => <CourseCard course={course} key={course._id}></CourseCard>)
                             }
 
                         </Row>
-                    </Col> */}
+                    </Col>
                     <Col lg='3'>
                         <RightNav></RightNav>
+                        <Outlet></Outlet>
                     </Col>
                 </Row>
             </Container>

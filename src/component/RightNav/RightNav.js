@@ -6,7 +6,7 @@ const RightNav = () => {
     const [categories, setCategories] = useState([])
 
     useEffect(() => {
-        fetch('http://localhost:5000/courses-categories')
+        fetch('http://localhost:5000/categories')
             .then(res => res.json())
             .then(data => setCategories(data))
     }, [])
@@ -14,7 +14,7 @@ const RightNav = () => {
         <div className='bg-dark rounded text-center py-4 mt-5 mb-5' >
             <h4 className='text-white mt-2 text-md '>Course Categories</h4>
             {
-                categories.map(category => <Button className='w-75 my-2 mx-3' variant="outline-light"><Link className='text-decoration-none'>{category.name}</Link> </Button>)
+                categories.map(category => <Button className='w-75 my-2 mx-3' variant="outline-light"><Link key={category.id} to={`/category/${category.id}`} className='text-decoration-none'>{category.name}</Link> </Button>)
             }
         </div >
     );
