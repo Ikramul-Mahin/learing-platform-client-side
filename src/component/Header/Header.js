@@ -9,14 +9,14 @@ import { AuthContext } from '../../context/AuthProvider';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
 import { Image } from 'react-bootstrap';
+import LeftSideNav from '../Pages/Category/Shared/LeftSideNav';
 
 const Header = () => {
     const { user, logOut } = useContext(AuthContext)
-    console.log(user)
     const handleSignOut = () => {
         logOut()
             .then(() => { })
-            .catch(error => console.erro(error))
+            .catch(error => console.error(error))
     }
 
     return (
@@ -36,14 +36,14 @@ const Header = () => {
                         <Nav className='d-flex justify-content-around'>
 
 
-                            <Link to='/courses' className='text-decoration-none text-white px-2 py-2'>Course</Link>
+                            <Link to='/' className='text-decoration-none text-white px-2 py-2'>Course</Link>
                             <Link to='/faq' className='text-decoration-none text-white px-2 py-2'>FAQ</Link>
                             <Link to='/blog' className='text-decoration-none text-white px-2 py-2'>Blog</Link>
                             {
                                 user?.uid ?
                                     <>
-                                        <Button className='' variant="outline-light" onClick={handleSignOut}> <small>Sign Out   <FontAwesomeIcon icon={faGraduationCap} /></small> </Button>
-                                        <Image style={{ height: '40px' }} src={user.photoURL} roundedCircle></Image>
+                                        <Button className='' variant="outline-light" onClick={handleSignOut}> <small>Sign Out</small> </Button>
+                                        <Image style={{ height: '40px' }} title={user.displayName} src={user.photoURL} roundedCircle></Image>
 
                                     </>
                                     :
@@ -60,6 +60,9 @@ const Header = () => {
 
 
                         </Nav>
+                        <div className='d-lg-none'>
+                            <LeftSideNav></LeftSideNav>
+                        </div>
                     </Navbar.Collapse>
                 </Container>
             </Navbar>

@@ -2,9 +2,9 @@ import React, { useContext } from 'react';
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
-import { AuthContext } from '../../../context/AuthProvider';
+import { AuthContext } from '../../context/AuthProvider';
 import { FacebookAuthProvider, getAuth, GoogleAuthProvider, signInWithPopup } from "firebase/auth";
-import app from '../../../firebase/firebase.init';
+import app from '../../firebase/firebase.init';
 const auth = getAuth(app)
 const googleprovider = new GoogleAuthProvider();
 const facebookProvider = new FacebookAuthProvider()
