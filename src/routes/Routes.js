@@ -25,18 +25,18 @@ export const router = createBrowserRouter([
             {
                 path: '/course',
                 element: <Home></Home>,
-                loader: () => fetch('http://localhost:5000/courses')
+                loader: () => fetch('https://assignment-server-10-eight.vercel.app/courses')
             },
             {
                 path: '/category/:id',
                 element: <Category></Category>,
-                loader: ({ params }) => fetch(`http://localhost:5000/category/${params.id}`)
+                loader: ({ params }) => fetch(`https://assignment-server-10-eight.vercel.app/category/${params.id}`)
             },
 
             {
                 path: '/courses/:id',
                 element: <Courses></Courses>,
-                loader: ({ params }) => { return fetch(`http://localhost:5000/courses/${params.id}`) }
+                loader: ({ params }) => { return fetch(`https://assignment-server-10-eight.vercel.app/courses/${params.id}`) }
 
             },
             {

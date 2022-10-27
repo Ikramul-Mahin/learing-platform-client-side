@@ -3,12 +3,13 @@ import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import Button from 'react-bootstrap/Button';
-import { faGraduationCap } from '@fortawesome/free-solid-svg-icons'
+import { faGraduationCap, } from '@fortawesome/free-solid-svg-icons'
 import { Link } from 'react-router-dom';
 import { AuthContext } from '../../context/AuthProvider';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { useState } from 'react';
 import { DarkModeToggle } from '@anatoliygatt/dark-mode-toggle';
+import { FaUniversity, FaUser, FaUsers } from "react-icons/fa";
 
 
 import { Image } from 'react-bootstrap';
@@ -59,17 +60,17 @@ const Header = () => {
                         </Nav>
                         <Nav className='d-flex justify-content-around'>
 
-
-
-                            <Link to='/course' className='text-decoration-none text-white px-2 py-2'>Course</Link>
-                            <Link to='/faq' className='text-decoration-none text-white px-2 py-2'>FAQ</Link>
-                            <Link to='/blog' className='text-decoration-none text-white px-2 py-2'>Blog</Link>
-                            <Link to='/info' className='text-decoration-none text-white px-2 py-2'>Student Info</Link>
                             {
                                 user?.uid ?
                                     <>
-                                        <Button className='' variant="outline-light" onClick={handleSignOut}> <small>Sign Out</small> </Button>
-                                        <Image className='mx-1' style={{ height: '50px', width: "50px" }} title={user.displayName} src={user.photoURL} roundedCircle></Image>
+                                        <Button className='' variant="outline-light" onClick={handleSignOut}> <small>Sign Out <FaUsers></FaUsers></small> </Button>
+                                        {
+                                            user?.photoURL ? <Image className='mx-1' style={{ height: '50px', width: "50px" }} title={user.displayName} src={user.photoURL} roundedCircle></Image>
+                                                :
+                                                <p><FaUsers></FaUsers> </p>
+
+                                        }
+
 
                                     </>
                                     :
@@ -79,6 +80,12 @@ const Header = () => {
                                     </>
 
                             }
+
+                            <Link to='/course' className='text-decoration-none text-white px-2 py-2'>Course</Link>
+                            <Link to='/faq' className='text-decoration-none text-white px-2 py-2'>FAQ</Link>
+                            <Link to='/blog' className='text-decoration-none text-white px-2 py-2'>Blog</Link>
+                            <Link to='/info' className='text-decoration-none text-white px-2 py-2'>Student Info</Link>
+
 
 
 

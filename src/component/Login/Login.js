@@ -6,6 +6,7 @@ import { AuthContext } from '../../context/AuthProvider';
 import { FacebookAuthProvider, getAuth, GoogleAuthProvider, signInWithPopup } from "firebase/auth";
 import app from '../../firebase/firebase.init';
 import toast from 'react-hot-toast';
+import { FaFacebook, FaGoogle } from 'react-icons/fa';
 const auth = getAuth(app)
 const googleprovider = new GoogleAuthProvider();
 const facebookProvider = new FacebookAuthProvider()
@@ -71,8 +72,8 @@ const Login = () => {
                     </Button>
 
                     <div>
-                        <Button className='w-100 mt-4' variant="dark" onClick={signGoogle}>Sign With Google</Button>
-                        <Button className='w-100 mt-2' variant="dark" onClick={signFacebook}>Sign With Facebook</Button>
+                        <Button className='w-100 mt-4' variant="dark" onClick={signGoogle}> <FaGoogle></FaGoogle>  Sign With Google</Button>
+                        <Button className='w-100 mt-2' variant="dark" onClick={signFacebook}><FaFacebook></FaFacebook> Sign With Facebook</Button>
                         <Link className='mt-2 bold text-black fs-6 mt-1' to='/register'>Please Register!!!</Link>
                     </div>
                 </Form>
