@@ -7,6 +7,10 @@ import Register from "../Register/Register";
 import Blog from "../component/Blog/Blog";
 import Faq from "../component/Faq/Faq";
 import Courses from "../component/Pages/Category/Courses/Courses";
+import Info from "../component/Pages/Category/Info/Info";
+import PrivateRoute from "./PrivateRoute";
+import EnroleCourse from "../component/Pages/Category/Courses/EnroleCourse"
+import Intro from "../component/Pages/Category/Home/Intro";
 
 
 export const router = createBrowserRouter([
@@ -16,6 +20,10 @@ export const router = createBrowserRouter([
         children: [
             {
                 path: '/',
+                element: <Intro></Intro>
+            },
+            {
+                path: '/course',
                 element: <Home></Home>,
                 loader: () => fetch('http://localhost:5000/courses')
             },
@@ -28,7 +36,8 @@ export const router = createBrowserRouter([
             {
                 path: '/courses/:id',
                 element: <Courses></Courses>,
-                loader: ({ params }) => fetch(`http://localhost:5000/courses/${params.category_id}`),
+                loader: ({ params }) => { return fetch(`http://localhost:5000/courses/${params.id}`) }
+
             },
             {
                 path: '/login',
@@ -46,9 +55,14 @@ export const router = createBrowserRouter([
                 path: '/blog',
                 element: <Blog></Blog>
             },
-
-
-
+            {
+                path: '/info',
+                element: <PrivateRoute> <Info></Info></PrivateRoute>
+            },
+            {
+                path: '/enrole',
+                element: <PrivateRoute><EnroleCourse></EnroleCourse></PrivateRoute>
+            },
             {
                 path: '*',
                 element: <div className="mt-5 pt-5 text-center pb-5"> <h2 className="pb-5 mb-5">404!!! <br /> Page Not Found </h2> </div>

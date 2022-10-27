@@ -3,8 +3,7 @@ import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
 import { Link } from 'react-router-dom';
 
-import Col from 'react-bootstrap/Col';
-import Row from 'react-bootstrap/Row';
+
 
 const CourseSummaryCard = ({ courses }) => {
     const { category_id, name, img, course_text } = courses
@@ -20,7 +19,7 @@ const CourseSummaryCard = ({ courses }) => {
                         {course_text.slice(0, 70) + '...'}
                     </Card.Text>
                     <Link to={`/courses/${category_id}`}>
-                        <Button variant="primary">View Details</Button>
+                        <Button variant="dark">Course Details</Button>
                     </Link>
 
                 </Card.Body>

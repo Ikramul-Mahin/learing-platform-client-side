@@ -7,11 +7,16 @@ import { faGraduationCap } from '@fortawesome/free-solid-svg-icons'
 import { Link } from 'react-router-dom';
 import { AuthContext } from '../../context/AuthProvider';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { useState } from 'react';
+import { DarkModeToggle } from '@anatoliygatt/dark-mode-toggle';
+
 
 import { Image } from 'react-bootstrap';
 import LeftSideNav from '../Pages/Category/Shared/LeftSideNav';
 
 const Header = () => {
+    const [mode, setMode] = useState('dark');
+
     const { user, logOut } = useContext(AuthContext)
     const handleSignOut = () => {
         logOut()
@@ -21,14 +26,33 @@ const Header = () => {
 
     return (
         <div>
-            <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
-                <Container>
-                    <Navbar.Brand href="#home"><FontAwesomeIcon icon={faGraduationCap} /> Skill | Developer</Navbar.Brand>
+            <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark" >
+                <Container className='py-2'>
+                    <Link to='/' className='text-decoration-none'>
+                        <Navbar.Brand href="#home"><FontAwesomeIcon icon={faGraduationCap} />  Skill | Developer</Navbar.Brand>
+                    </Link>
                     <Navbar.Toggle aria-controls="responsive-navbar-nav" />
                     <Navbar.Collapse id="responsive-navbar-nav">
                         <Nav className="me-auto  ">
 
-                            <Button className='' variant="outline-light"> <small>Light-Mode</small> </Button>
+                            <DarkModeToggle
+                                mode={mode}
+                                // dark="Dark"
+                                light="Light Mode"
+                                size="sm"
+                                className='bg-black'
+                                inactiveTrackColor="#e2e8f0"
+                                inactiveTrackColorOnHover="#f8fafc"
+                                inactiveTrackColorOnActive="#cbd5e1"
+                                activeTrackColor="#334155"
+                                activeTrackColorOnHover="#1e293b"
+                                activeTrackColorOnActive="#0f172a"
+                                inactiveThumbColor="#1e293b"
+                                activeThumbColor="#e2e8f0"
+                                onChange={(mode) => {
+                                    setMode(mode);
+                                }}
+                            />
 
 
 
@@ -36,14 +60,16 @@ const Header = () => {
                         <Nav className='d-flex justify-content-around'>
 
 
-                            <Link to='/' className='text-decoration-none text-white px-2 py-2'>Course</Link>
+
+                            <Link to='/course' className='text-decoration-none text-white px-2 py-2'>Course</Link>
                             <Link to='/faq' className='text-decoration-none text-white px-2 py-2'>FAQ</Link>
                             <Link to='/blog' className='text-decoration-none text-white px-2 py-2'>Blog</Link>
+                            <Link to='/info' className='text-decoration-none text-white px-2 py-2'>Student Info</Link>
                             {
                                 user?.uid ?
                                     <>
                                         <Button className='' variant="outline-light" onClick={handleSignOut}> <small>Sign Out</small> </Button>
-                                        <Image style={{ height: '40px' }} title={user.displayName} src={user.photoURL} roundedCircle></Image>
+                                        <Image className='mx-1' style={{ height: '50px', width: "50px" }} title={user.displayName} src={user.photoURL} roundedCircle></Image>
 
                                     </>
                                     :

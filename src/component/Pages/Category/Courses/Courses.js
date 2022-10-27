@@ -1,27 +1,32 @@
 import React from 'react';
-import { useLoaderData } from 'react-router-dom';
+import { Link, useLoaderData } from 'react-router-dom';
 import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
+import Downlode from './Downlode';
 const Courses = () => {
-    const courses = useLoaderData()
-    console.log(courses)
-
+    const allcourses = useLoaderData()
 
     return (
-        <div className='d-flex justify-content-center mt-5' >
-            <Card style={{ width: '18rem' }}>
-                <Card.Img variant="top" style={{ height: '250px' }} src='' />
-                <Card.Body>
-                    <Card.Title></Card.Title>
-                    <Card.Text>
+        <div className=' mt-5' >
+            <Downlode></Downlode>
+            <div className='d-flex justify-content-center'>
+                <Card style={{ width: '35rem' }}>
+                    <Card.Img variant="top" style={{ height: '300px' }} src={allcourses.img} />
+                    <Card.Body>
+                        <Card.Title>{allcourses.name}</Card.Title>
+                        <Card.Text>
+                            {allcourses.course_text}
+                        </Card.Text>
+                        <h3>Instractor: {allcourses.instractor}</h3>
+                        <h5>Price:{allcourses.price}</h5>
+                        <Link to='/enrole'>
+                            <Button variant="dark">Enrole Course</Button>
+                        </Link>
 
-                    </Card.Text>
+                    </Card.Body>
+                </Card>
+            </div>
 
-                    <Button variant="primary">View Details</Button>
-
-
-                </Card.Body>
-            </Card>
         </div>
     );
 };

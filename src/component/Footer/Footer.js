@@ -8,6 +8,7 @@ import {
     MDBRow,
     MDBBtn
 } from 'mdb-react-ui-kit';
+import { Link } from 'react-router-dom';
 const Footer = () => {
     return (
         <div>
@@ -47,9 +48,9 @@ const Footer = () => {
 
                 <div className='text-center p-3' style={{ backgroundColor: 'rgba(0, 0, 0, 0.2)' }}>
                     © 2022 Copyright:
-                    <a className='text-white' href='https://mdbootstrap.com/'>
+                    <Link className=' mx-1 text-white' href='#'>
                         SkillDeveloper.com
-                    </a>
+                    </Link>
                 </div>
             </MDBFooter>
 

@@ -1,6 +1,7 @@
 import React, { useContext } from 'react';
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
+import toast from 'react-hot-toast';
 import { Link } from 'react-router-dom';
 import { AuthContext } from '../context/AuthProvider';
 const Register = () => {
@@ -19,6 +20,7 @@ const Register = () => {
                 const user = result.user
                 console.log(user)
                 form.reset()
+                toast.success('Successfully Registerd!!')
                 handleUpdateUser(name, photoURL)
             })
             .catch(error => {
@@ -67,7 +69,7 @@ const Register = () => {
 
                     <div>
 
-                        <Link className='mt-2 bold' to='/login'>Already have an Account!</Link>
+                        <Link className='mt-2 bold text-black fs-6 mt-1' to='/login'>Already have an Account!</Link>
                     </div>
                 </Form>
             </div >

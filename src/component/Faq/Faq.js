@@ -17,14 +17,14 @@ const Faq = () => {
                     >
                         FAQ
                     </MDBTypography>
-                    <p className="text-center mb-5">
+                    <p className="text-center mb-5 fs-5">
                         Find the answers for the most frequently asked questions below
                     </p>
 
                     <MDBRow>
                         <MDBCol md="6" lg="4" className="mb-4">
-                            <MDBTypography tag="h6" className="mb-3 text-primary">
-                                <MDBIcon far icon="paper-plane text-primary pe-2" /> A simple
+                            <MDBTypography tag="h6" className="mb-3 text-black fw-semibold fs-4">
+                                <MDBIcon far icon="paper-plane  pe-2" /> A simple
                                 question?
                             </MDBTypography>
                             <p>
@@ -37,8 +37,8 @@ const Faq = () => {
                             </p>
                         </MDBCol>
                         <MDBCol md="6" lg="4" className="mb-4">
-                            <MDBTypography tag="h6" className="mb-3 text-primary">
-                                <MDBIcon fas icon="pen-alt text-primary pe-2" /> A question that
+                            <MDBTypography tag="h6" className="mb-3text-black fw-semibold fs-4">
+                                <MDBIcon fas icon="pen-alt  pe-2" /> A question that
                                 is longer then the previous one?
                             </MDBTypography>
                             <p>
@@ -50,8 +50,8 @@ const Faq = () => {
                             </p>
                         </MDBCol>
                         <MDBCol md="6" lg="4" className="mb-4">
-                            <MDBTypography tag="h6" className="mb-3 text-primary">
-                                <MDBIcon fas icon="user text-primary pe-2" /> A simple question?
+                            <MDBTypography tag="h6" className="mb-3 text-black fw-semibold fs-4">
+                                <MDBIcon fas icon="user  pe-2" /> A simple question?
                             </MDBTypography>
                             <p>
                                 Currently, we only offer monthly subscription. You can upgrade or
@@ -60,7 +60,7 @@ const Faq = () => {
                             </p>
                         </MDBCol>
                         <MDBCol md="6" lg="4" className="mb-4">
-                            <MDBTypography tag="h6" className="mb-3 text-primary">
+                            <MDBTypography tag="h6" className="mb-3 text-black fw-semibold fs-4">
                                 <MDBIcon fas icon="rocket text-primary pe-2" /> A simple question?
                             </MDBTypography>
                             <p>
@@ -69,8 +69,8 @@ const Faq = () => {
                             </p>
                         </MDBCol>
                         <MDBCol md="6" lg="4" className="mb-4">
-                            <MDBTypography tag="h6" className="mb-3 text-primary">
-                                <MDBIcon fas icon="home text-primary pe-2" /> A simple question?
+                            <MDBTypography tag="h6" className="mb-3 text-black fw-semibold fs-4">
+                                <MDBIcon fas icon="home pe-2" /> A simple question?
                             </MDBTypography>
                             <p>
                                 <strong>
@@ -80,8 +80,8 @@ const Faq = () => {
                             </p>
                         </MDBCol>
                         <MDBCol md="6" lg="4" className="mb-4">
-                            <MDBTypography tag="h6" className="mb-3 text-primary">
-                                <MDBIcon fas icon="book-open text-primary pe-2" /> Another
+                            <MDBTypography tag="h6" className="mb-3 text-black fw-semibold fs-4">
+                                <MDBIcon fas icon="book-open  pe-2" /> Another
                                 question that is longer than usual
                             </MDBTypography>
                             <p>

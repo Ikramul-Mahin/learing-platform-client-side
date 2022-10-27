@@ -1,16 +1,18 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
-import { Link, useLocation, useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { AuthContext } from '../../context/AuthProvider';
 import { FacebookAuthProvider, getAuth, GoogleAuthProvider, signInWithPopup } from "firebase/auth";
 import app from '../../firebase/firebase.init';
+import toast from 'react-hot-toast';
 const auth = getAuth(app)
 const googleprovider = new GoogleAuthProvider();
 const facebookProvider = new FacebookAuthProvider()
 const Login = () => {
     const { signIn } = useContext(AuthContext)
-    const navigate = useNavigate()
+    const [error, setError] = useState('')
+
 
 
     const signGoogle = () => {
@@ -31,11 +33,14 @@ const Login = () => {
                 const user = result.user
                 console.log(user)
                 form.reset()
-                navigate('/blog')
 
+                toast.success('Successfully log in!!')
+
+                setError('')
             })
             .catch(error => {
                 console.error('error', error)
+                setError(error.message)
             })
     }
     return (
@@ -49,15 +54,15 @@ const Login = () => {
                     <Form.Group className="mb-3" controlId="formBasicEmail">
                         <Form.Label>Email address</Form.Label>
                         <Form.Control type="email" name='email' placeholder="Enter email" />
-                        <Form.Text className="text-muted">
-                            We'll never share your email with anyone else.
-                        </Form.Text>
                     </Form.Group>
 
                     <Form.Group className="mb-3" controlId="formBasicPassword">
                         <Form.Label>Password</Form.Label>
                         <Form.Control type="password" name='password' placeholder="Password" />
                     </Form.Group>
+                    <Form.Text className="text-black">
+                        {error}
+                    </Form.Text>
                     <Form.Group className="mb-3" controlId="formBasicCheckbox">
                         <Form.Check type="checkbox" label="Check me out" />
                     </Form.Group>
@@ -68,7 +73,7 @@ const Login = () => {
                     <div>
                         <Button className='w-100 mt-4' variant="dark" onClick={signGoogle}>Sign With Google</Button>
                         <Button className='w-100 mt-2' variant="dark" onClick={signFacebook}>Sign With Facebook</Button>
-                        <Link className='mt-2 bold' to='/register'>Please Register!!!</Link>
+                        <Link className='mt-2 bold text-black fs-6 mt-1' to='/register'>Please Register!!!</Link>
                     </div>
                 </Form>
             </div>
